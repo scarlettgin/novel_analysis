@@ -2,7 +2,8 @@
 # -*- coding:utf-8 -*-
 import os
 import jieba
-import pandas
+import pandas as pd
+import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
 import gensim
 import lda
@@ -49,14 +50,28 @@ def word2vec_train():
     model.save("word_vector")
 
 
-def get_lda_corpus():
+def get_lda_input(corpus):
     vectorizer = CountVectorizer()
+    X = vectorizer.fit_transform(corpus)
+    analyze = vectorizer.build_analyzer()
+    weight = X.toarray()
+    print(len(weight))
 
-    return
+    return weight
 
 
-def lda_train():
+def lda_train(weight, vocab):
     model = lda.LDA(n_topics=2, n_iter=500, random_state=1)
+    model.fit(weight)
+    topic_word = model.topic_word_
+    n_top_words = 8
+    for i, topic_dist in enumerate(topic_word):
+        topic_words = np.array(vocab)[np.argsort(topic_dist)][:-(n_top_words + 1):-1]
+        print('Topic {}: {}'.format(i, ' '.join(topic_words)))
+
+    doc_topic = model.doc_topic_
+    for i in range(10):
+        print("{} (top topic: {})".format(titles[i], doc_topic[i].argmax()))
     return
 
 
