@@ -6,10 +6,12 @@ import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
 import gensim
+from gensim.models import word2vec
 import lda
 import re
+jieba.load_userdict("data/person.txt")
 
-STOP_WORDS = set(open("data/stopwords.txt").readlines())
+STOP_WORDS = set([w.strip() for w in open("data/stopwords.txt").readlines()])
 
 
 class MyChapters(object):
@@ -21,11 +23,10 @@ class MyChapters(object):
             yield cut_words(chapter)
 
 
-# 只保留中文
-def isAllChinese(line):
+# 过滤词长，过滤停用词，只保留中文
+def is_fine_word(word, min_length=2):
     rule = re.compile(r"^[\u4e00-\u9fa5]+$")
-    res = re.search(rule, line)
-    if res:
+    if len(word) >= min_length and word not in STOP_WORDS and re.search(rule, word):
         return True
     else:
         return False
@@ -33,8 +34,8 @@ def isAllChinese(line):
 
 def cut_words(text):
     words = jieba.cut(text)
-    filter_words = [w for w in words if w not in STOP_WORDS and len(w) > 1 and isAllChinese(w)]
-    return filter_words
+    fine_words = [w for w in words if is_fine_word(w)]
+    return fine_words
 
 
 def split_by_chapter():
@@ -50,6 +51,7 @@ def word2vec_train():
     model.save("word_vector")
 
 
+# http://blog.csdn.net/real_myth/article/details/51239847
 def get_lda_input(corpus):
     vectorizer = CountVectorizer()
     X = vectorizer.fit_transform(corpus)
@@ -75,13 +77,9 @@ def lda_train(weight, vocab):
     return
 
 
-def word_cloud():
-    return
-
-
 def gen_ciku():
     return
 
 
 if __name__ == '__main__':
-    print(isAllChinese('faiuehf000(((<<,,我的'))
+    pass
