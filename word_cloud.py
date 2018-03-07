@@ -3,21 +3,10 @@
 
 from basic import *
 import pandas as pd
-import jieba.posseg
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud, ImageColorGenerator
 from scipy.misc import imread
 import random
-
-
-def cut_words_with_pos(text):
-    seg = jieba.posseg.cut(text)
-    res = []
-    for i in seg:
-        if i.flag in ["a", "v", "x", "n", "an", "vn", "nz", "nt", "nr"] and is_fine_word(i.word):
-            res.append(i.word)
-
-    return list(res)
 
 
 def person_word(name):

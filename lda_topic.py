@@ -15,7 +15,7 @@ def get_lda_input(chapters):
 
 
 def lda_train(weight, vectorizer):
-    model = lda.LDA(n_topics=10, n_iter=500, random_state=1)
+    model = lda.LDA(n_topics=15, n_iter=500, random_state=1)
     model.fit(weight)
 
     doc_num = len(weight)
@@ -23,14 +23,15 @@ def lda_train(weight, vectorizer):
     vocab = vectorizer.get_feature_names()
     titles = ["第{}章".format(i) for i in range(1, doc_num + 1)]
 
-    n_top_words = 8
+    n_top_words = 20
     for i, topic_dist in enumerate(topic_word):
         topic_words = np.array(vocab)[np.argsort(topic_dist)][:-(n_top_words + 1):-1]
         print('Topic {}: {}'.format(i, ' '.join(topic_words)))
 
     doc_topic = model.doc_topic_
+    print(doc_topic)
     for i in range(doc_num):
-        print("{} (top topic: {})".format(titles[i], doc_topic[i].argmax()))
+        print("{} (top topic: {})".format(titles[i], np.argsort(doc_topic[i])[:-4:-1]))
 
 
 def main():
