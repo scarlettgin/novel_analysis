@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9a7442b-0165-410e-8e25-d4ba50f3c688" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/hexiaoman.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/liu.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/liufeng.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/novel_analysis.iml" afterPath="$PROJECT_DIR$/.idea/novel_analysis.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/he1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/liu2.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lda_topic.py" afterPath="$PROJECT_DIR$/lda_topic.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/word_cloud.py" afterPath="$PROJECT_DIR$/word_cloud.py" />
     </list>
     <ignored path="novel_analysis.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,8 +56,8 @@
       <file leaf-file-name="word_cloud.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/word_cloud.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1352">
-              <caret line="72" column="1407" selection-start-line="72" selection-start-column="1407" selection-end-line="72" selection-end-column="1407" />
+            <state relative-caret-position="651">
+              <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
               <folding>
                 <element signature="e#47#66#0" expanded="true" />
               </folding>
@@ -479,7 +474,14 @@
       <option name="project" value="LOCAL" />
       <updated>1520178456274</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="init">
+      <created>1520420170964</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1520420170964</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -520,7 +522,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="novel" />
-    <option name="LAST_COMMIT_MESSAGE" value="novel" />
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -676,8 +679,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/word_cloud.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1352">
-          <caret line="72" column="1407" selection-start-line="72" selection-start-column="1407" selection-end-line="72" selection-end-column="1407" />
+        <state relative-caret-position="651">
+          <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
           <folding>
             <element signature="e#47#66#0" expanded="true" />
           </folding>
