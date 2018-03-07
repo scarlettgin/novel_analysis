@@ -34,7 +34,7 @@ def lda_train(weight, vectorizer):
 
 
 def main():
-    chapter_list = split_by_chapter("data/test")
+    chapter_list = split_by_chapter("data/芳华-严歌苓.txt")
     chapters = MyChapters(chapter_list)
     weight, vectorizer = get_lda_input(chapters)
     lda_train(weight, vectorizer)
