@@ -31,7 +31,8 @@ def lda_train(weight, vectorizer):
         print('Topic {}: {}'.format(i, ' '.join(topic_words)))
 
     doc_topic = model.doc_topic_
-    print(doc_topic)
+    print(doc_topic, type(doc_topic))
+    plot_topic(doc_topic)
     for i in range(doc_num):
         print("{} (top topic: {})".format(titles[i], np.argsort(doc_topic[i])[:-4:-1]))
 
