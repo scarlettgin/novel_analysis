@@ -18,7 +18,7 @@ class MyChapters(object):
 
 def split_by_chapter(filepath):
     text = open(filepath).read()
-    chapter_list = re.split(r'第.章\n', text)[1:]
+    chapter_list = re.split(r'第.{1,3}章\n', text)[1:]
     return chapter_list
 
 
@@ -39,7 +39,3 @@ def is_fine_word(word, min_length=2):
         return True
     else:
         return False
-
-
-if __name__ == '__main__':
-    pass

@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-# http://blog.csdn.net/real_myth/article/details/51239847
 def get_lda_input(chapters):
     corpus = [" ".join(word_list) for word_list in chapters]
     vectorizer = CountVectorizer()
@@ -17,7 +16,7 @@ def get_lda_input(chapters):
 
 
 def lda_train(weight, vectorizer):
-    model = lda.LDA(n_topics=15, n_iter=500, random_state=1)
+    model = lda.LDA(n_topics=20, n_iter=1000, random_state=1)
     model.fit(weight)
 
     doc_num = len(weight)
@@ -45,16 +44,15 @@ def main():
 
 
 def plot_topic(doc_topic):
-    # https://www.jianshu.com/p/363bbf6ec335
     f, ax = plt.subplots(figsize=(10, 4))
     cmap = sns.cubehelix_palette(start=1, rot=3, gamma=0.8, as_cmap=True)
     sns.heatmap(doc_topic, cmap=cmap, linewidths=0.05, ax=ax)
     ax.set_title('proportion per topic in every chapter')
     ax.set_xlabel('topic')
     ax.set_ylabel('chapter')
-    # plt.show()
+    plt.show()
 
-    f.savefig('data/topic_heatmap.jpg', bbox_inches='tight')
+    f.savefig('output/topic_heatmap.jpg', bbox_inches='tight')
 
 
 if __name__ == '__main__':
